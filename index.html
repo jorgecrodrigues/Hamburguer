@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tag's -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Hamburguer</title>
+
+    <style>
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .menu {
+            top: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
+            background-color: #00ACC1;
+            border-radius: 100px;
+            position: fixed;
+            z-index: 9999;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        .menu:hover {
+            background-color: #00879a;
+            cursor: pointer;
+        }
+
+        .menu > .hamburguer {
+            top: 30px;
+            left: 14px;
+            width: 31px;
+            height: 2px;
+            background-color: white;
+            display: block;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .menu > .hamburguer:before,
+        .menu > .hamburguer:after {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            position: absolute;
+            display: block;
+            content: '';
+            transition: all 0.5s ease;
+        }
+
+        .menu > .hamburguer:before {
+            top: -10px;
+        }
+
+        .menu > .hamburguer:after {
+            bottom: -10px;
+        }
+
+        .checked {
+            display: none;
+        }
+
+        .checked:checked ~ .check .hamburguer {
+            transform: rotate(45deg);
+        }
+
+        .checked:checked ~ .check .hamburguer:before {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        .checked:checked ~ .check .hamburguer:after {
+            bottom: 0;
+            transform: rotate(90deg);
+        }
+
+        .navbar {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00ACC1;
+            position: absolute;
+            display: table;
+            opacity: 0;
+            z-index: -1111;
+            transition: all 0.5s ease;
+        }
+
+        .navbar > .links {
+            list-style-type: none;
+            display: table-row;
+        }
+
+        .navbar > .links > .item {
+            width: 33.33%;
+            list-style-type: none;
+            vertical-align: middle;
+            text-align: center;
+            display: table-cell;
+        }
+
+        .navbar > .links > .item > .link {
+            padding: 5px 20px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #f1f1f1;
+            display: inline-block;
+            position: relative;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .navbar > .links > .item > .link:hover {
+            color: #ffffff;
+        }
+
+        .navbar > .links > .item > .link:before {
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 50%;
+            background-color: #CDDC39;
+            content: " ";
+            position: absolute;
+            z-index: -1;
+            transition: width 0.2s ease-in-out;
+        }
+
+        .navbar > .links > .item > .link:hover:before {
+            width: 100%;
+        }
+
+        .checked:checked ~ .navbar {
+            opacity: 1;
+            z-index: 9998;
+        }
+
+        .h1 {
+            margin: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- The menu -->
+<input class="checked" id="menu_hamburger" type="checkbox">
+<label class="check" for="menu_hamburger">
+    <div class="menu">
+        <div class="hamburguer"></div>
+    </div>
+</label>
+<div class="navbar">
+    <ul class="links">
+        <li class="item"><a href="" class="link">Home</a></li>
+        <li class="item"><a href="" class="link">Work</a></li>
+        <li class="item"><a href="" class="link">About me</a></li>
+    </ul>
+</div>
+<!-- End the menu -->
+<h1 class="h1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium!</h1>
+
+</body>
+</html>
